@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="RandLA-Net">
+    <meta name="description" content="">
+    <title>RandLA-Net</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="RandLA-Net.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 5.2.4, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="RandLA-Net">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="sec-27cb"><div class="u-clearfix u-sheet u-sheet-1">
+        <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+            <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Intro.html" style="padding: 10px 20px;">Intro</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="RandLA-Net.html" style="padding: 10px 20px;">RandLA-Net</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="BEV-Seg-Net.html" style="padding: 10px 20px;">BEV-Seg-Net</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Result.html" style="padding: 10px 20px;">Result</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Team.html" style="padding: 10px 20px;">Team</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Intro.html">Intro</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="RandLA-Net.html">RandLA-Net</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="BEV-Seg-Net.html">BEV-Seg-Net</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Result.html">Result</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Team.html">Team</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+    <section class="u-clearfix u-image u-section-1" id="sec-b092" data-image-width="1200" data-image-height="500">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-align-center u-text u-text-default u-text-white u-text-1">RandLA-Net<br>
+        </h1>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-section-2" id="sec-ff01">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h3 class="u-text u-text-default u-text-1"> Why we use RandLA-Net?</h3>
+        <p class="u-align-center u-text u-text-2"> SensatUrban is a large-scale point cloud, and the first thing to consider when doing 3D Semantic Segmentation is to down-sampling, due to existing equipment considerations, most down-sampling methods cut the entire point cloud set into small point cloud blocks.<br>However. many objects will lose their original geometric structure of the object, so in the case of a large point cloud, it will be difficult for the neural network to learn the overall ​geometry structure of the object.<br>
+          <br>So, We choose RandLA-Net.
+        </p>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-5 u-section-3" id="sec-c971">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h3 class="u-text u-text-1">Random Sampling</h3>
+        <p class="u-text u-text-2"> Using random sampling, we only have to use
+K*O (1) time to select K points from the input N points
+points, so the amount of calculation is only related to the number of points we need to sample, so it has a very high efficiency.&nbsp;<br>However, the uncertainty of using random sampling will lead to the loss of local information, for this
+problem, the author proposes a local feature aggregation (LFA) module as a solution.
+        </p>
+      </div>
+    </section>
+    <section class="u-clearfix u-white u-section-4" id="sec-2d70">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h3 class="u-text u-text-1">Local Feature Aggregation</h3>
+        <p class="u-text u-text-2">Including 3 parts:<br>1. LocSE:&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; To encode the coordinates of the point cloud, using KNN algorithm to find the nearest K points, then concatenate the center point coordinates, K neighbor point coordinates, relative coordinates and distances.<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Then the points we concatenate above and corresponding neighbor points are concatenated and become a new feature.<br>
+          <br>2. Attentive Pooling<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Design a shared function for each point to learn their own
+attention score, and take&nbsp;attention score as a soft mask that can select important features, and the final learned features are the weighted sum of these neighborhood features.<br>
+          <br>3. Dilated Resudual Block<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ​Because of the recent downsampling, the purpose of expanding the residual block is to increase the sense of each point
+Receptive field.<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Multiple local space encoding, self-attention pooling layer and Skip connections are combined into a ​Dilated Residual Block.<br>
+        </p>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-image u-image-contain u-section-5" src="" id="sec-91af" data-image-width="1047" data-image-height="410">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h3 class="u-align-center u-text u-text-default u-text-1">Structur<span style="font-weight: 700;"></span>e of LFA module
+        </h3>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-grey-5 u-section-6" id="sec-d83a">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h3 class="u-align-center u-text u-text-default u-text-1">Modifications We've Done</h3>
+        <h5 class="u-align-center u-text u-text-2"> In the implementation stage, we divided the RandLA-Net into 3 important parts to do modification:<br>
+          <br>Dataset Preprocessing<br>Ratio between batch size and data size<br>Sampling Method<br>
+        </h5>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-section-7" id="sec-3dc1">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h3 class="u-text u-text-default u-text-1">Data Preprocessing</h3>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-8" id="sec-7b04">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <h4 class="u-text u-text-default u-text-1">Random Rotation</h4>
+                  <p class="u-text u-text-default u-text-2"> The new coordinates are obtained by multiplying the coordinates of each point in the data with the rotation matrix Figure 6 for the three axes,
+It is equivalent to rotate the entire data, and rotate in a random way to increase the diversity of the data</p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-valign-middle u-container-layout-2">
+                  <img class="u-image u-image-default u-image-1" src="images/image1.png" alt="" data-image-width="1172" data-image-height="435">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-9" id="sec-3ce2">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-60 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <h4 class="u-text u-text-default u-text-1"> Random Translate</h4>
+                  <p class="u-text u-text-default u-text-2"> Add the coordinates of all points of with a&nbsp; 3 X 3 matrix, let the whole data shift for a period. <br>The distance matrix also increases the diversity of the data in a stochastic manner.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-10" id="sec-0d9d">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-60 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <h4 class="u-text u-text-default u-text-1"> Random Scale</h4>
+                  <p class="u-text u-text-default u-text-2"> Combine the coordinates of all points in a piece of data with
+3 X 3 matrices are multiplied to obtain a
+The new data with a certain scaling.<br>Because it is the scaling of the overall data, so between points
+The distance of the point cloud and the overall density of the point cloud will also be affected, and the scaling parameter is also increased in a random manner.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-11" id="sec-e11b">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-32 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <h4 class="u-text u-text-default u-text-1"> Gaussian Noise</h4>
+                  <p class="u-text u-text-default u-text-2"> The noise value generated by Gaussian noise is random, but after the noise value is counted, it will show a ​Normal distribution.&nbsp;<br>When we look at the noise spectrum, we find Gaussian noise and the original image is relatively integrated, and will not produce excessive noise that will destroy the integrity of the data, and this type of noise can also generate different noises by adjusting parameters such as the average value and standard deviation.
+                  </p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-28 u-layout-cell-2">
+                <div class="u-container-layout u-valign-bottom u-container-layout-2">
+                  <img class="u-image u-image-contain u-image-default u-image-1" src="images/image6.png" alt="" data-image-width="464" data-image-height="339">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-container-align-center u-grey-5 u-section-12" id="sec-aacb">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h3 class="u-align-center u-text u-text-default u-text-1">Ratio Between Batch size and Data size</h3>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-5 u-section-13" id="sec-bfac">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h3 class="u-text u-text-1">Progress</h3>
+        <p class="u-text u-text-2"> Since the training on a GTX 1080 is severely limited by VRAM size, we did not&nbsp;modify the ratio between the batch size and the data size on this GPU.<br>Only when the training resources of the second GPU (GTX Titan X) which is provided to us from the laboratory, we can adjust the ratio. This part will be shown in&nbsp;the result.<br>
+          <br>In this modification, we can see that after increasing the size of VRAM, the performance of the overall model has been greatly improved, which can be
+See RandLA-Net is very sensitive to the size of the input data.<br>
+          <br>And we also find a ratio sweet spot in the RandLA-net.
+        </p>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-section-14" id="sec-feec">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h3 class="u-text u-text-default u-text-1">Sampling Method</h3>
+        <p class="u-align-center u-text u-text-2">The default sampling method of RandLA-net is to randomly sample a point, find 30,000 points adjacent to this point as the input of the Network, and we follow his sampling idea, but change the sampling method to
+The next two types:</p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-15" id="sec-a5a1">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-60 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <h4 class="u-align-left u-text u-text-default u-text-1"> Farthest Point Sampling</h4>
+                  <p class="u-align-left u-text u-text-default u-text-2"> In the SensatUrban dataset, since the point cloud has been cut into 33 different ply files by default, and due to insufficient hardware space, it is impossible to read all the files to the memory at one time, so that the entire SensatUrban data set can be pieced together into a complete point cloud For sampling, so for the farthest point sampling method, we down-sampled again, and made three different modifications to the data sampling of reading multiple files and sampling a layer of 3000 records:<br>
+                    <br><b>
+                      <span style="font-weight: 400;">1. The 3000 pieces of data comes from the same small file.<br>&nbsp; 
+                      </span></b>&nbsp; &nbsp; &nbsp; &nbsp; <b>
+                      <span style="font-weight: 400;">&nbsp;Easier in sampling.<br>
+                      </span></b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<b>
+                      <span style="font-weight: 400;">Low point cloud diversity<br>2. The 3000 pieces of data comes from 33 file evenly. (2000/33 = 90)<br>
+                      </span></b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<b>
+                      <span style="font-weight: 400;">The data gets more average than the previous method.<br>
+                      </span></b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<b>
+                      <span style="font-weight: 400;">The data gets more average than the previous method.<br>3. The 3000 pieces of data comes from 33 file based on the original file size<br>
+                      </span></b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<b>
+                      <span style="font-weight: 400;">The data comes average.<br>
+                      </span></b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<b>
+                      <span style="font-weight: 400;">Needs more time to calculate the FPS sampling</span>
+                      <br></b>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-container-align-center u-section-16" id="sec-8487">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-60 u-layout-cell-1">
+                <div class="u-container-layout u-valign-bottom u-container-layout-1">
+                  <h4 class="u-align-left u-text u-text-default u-text-1"> Weird Result in FPS</h4>
+                  <p class="u-align-left u-text u-text-default u-text-2"> Why FPS gets lower mIOU than random sampling, while FPS gets more average in data sampling?<br>
+                    <br>Our Assumption: Although FPS has more average result, the coverage is too similar in every epoch.<br>Let's take a point cloud as example:
+                  </p>
+                  <img class="u-align-center u-image u-image-contain u-image-default u-image-1" src="images/image7.png" alt="" data-image-width="1270" data-image-height="393">
+                  <p class="u-align-left u-text u-text-default u-text-3"> The three point cloud A, B, and C in the above figure are the same point cloud.<br>And the sampling order is that first randomly selected point (Red), then according to the order of the farthest point sampling blue → yellow → green → purple, point cloud A is similar to the first point sampled by point cloud B, and the first point sampled by point cloud C is the center.
+                  </p>
+                  <img class="u-image u-image-contain u-image-default u-image-2" src="images/image8.png" alt="" data-image-width="1153" data-image-height="347">
+                  <p class="u-align-left u-text u-text-default u-text-4"> As can be seen from the above figure, after the three FPS of the point cloud are completely different, the final result after finding the nearest 30,000 points to the sampling point, the obtained data (the white bottom part) are very similar.<br>All of which are the four corners and the center part.&nbsp; This makes the coverage of different epochs too similar, and when the number of samples of the large point cloud is too small, the part with the gray background can never be obtained, which also causes dead ends.&nbsp; <br>Compared with random sampling, it is more likely to obtain the gray part that cannot be obtained by the FPS, so random sampling can achieve better performance in the case of limited resources.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-17" id="sec-bb9b">
+      <div class="u-clearfix u-sheet u-valign-top u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-60 u-layout-cell-1">
+                <div class="u-container-layout u-valign-bottom u-container-layout-1">
+                  <h4 class="u-align-left u-text u-text-default u-text-1">Adaptive Sampling</h4>
+                  <p class="u-align-left u-text u-text-default u-text-2"> In the process of implementing adaptive sampling, one of the samples is also used as a benchmark, and then additional processing makes the outlier we get close to the normal point cloud outline, and the adaptive sampling has not been implemented in the model after evaluation.<b>
+                      <br></b>
+                  </p>
+                  <img class="u-image u-image-contain u-image-default u-image-1" src="images/image9.png" alt="" data-image-width="1549" data-image-height="537">
+                  <p class="u-align-left u-text u-text-default u-text-3"> Let's take the actual situation as an example.&nbsp;<br>Suppose we have a data with 12 points. The sampling process of RandLA-net is: after finding a point, take 11 points near it as a data.&nbsp;
+As shown on the left side of the figure above, when we get outliers (yellow dots), the outliers are usually caused by noise.&nbsp;
+It will be close to the contour of the point cloud, so the points obtained are the 11 points closest to the outlier. Generally speaking, it will be one of the corners of the point cloud outline, that is, the 11 points in yellow and red.
+The situation on the right side of the figure above shows that when we use adaptive sampling, the center point we get will be
+It is the point cloud contour point closest to the outlier point, that is, the yellow point at the corner of the point cloud contour on the right side of the above figure, and then find the 11 red points closest to it, which is the obtained data sampling.
+Comparing the two pictures, although the position of the point obtained by our center point is very different, the final
+The whole data is the same two data. It can be seen that adaptive sampling is not suitable for the RandLA-net data collection method. Computing but getting the same data is expensive in most cases.<b>
+                      <br></b>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-195b"><div class="u-clearfix u-sheet u-sheet-1"></div></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Website Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="" target="_blank">
+        <span>Website Builder Software</span>
+      </a>. 
+    </section>
+  
+</body></html>

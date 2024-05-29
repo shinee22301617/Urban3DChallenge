@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="BEV-Seg-Net">
+    <meta name="description" content="">
+    <title>BEV-Seg-Net</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="BEV-Seg-Net.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 5.2.4, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="BEV-Seg-Net">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="sec-27cb"><div class="u-clearfix u-sheet u-sheet-1">
+        <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+            <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Intro.html" style="padding: 10px 20px;">Intro</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="RandLA-Net.html" style="padding: 10px 20px;">RandLA-Net</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="BEV-Seg-Net.html" style="padding: 10px 20px;">BEV-Seg-Net</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Result.html" style="padding: 10px 20px;">Result</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Team.html" style="padding: 10px 20px;">Team</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Intro.html">Intro</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="RandLA-Net.html">RandLA-Net</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="BEV-Seg-Net.html">BEV-Seg-Net</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Result.html">Result</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Team.html">Team</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+    <section class="u-clearfix u-section-1" id="sec-22eb">
+      <div class="u-clearfix u-sheet u-valign-top u-sheet-1">
+        <img class="u-align-center u-image u-image-contain u-image-default u-image-1" src="images/image20.png" alt="" data-image-width="1452" data-image-height="498">
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="sec-b202">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-text u-text-default u-text-1">BEV-Seg-Net</h1>
+        <h4 class="u-text u-text-default u-text-2">What is BEV-Seg-Net?</h4>
+        <p class="u-text u-text-default u-text-3"> BEV-Seg-Net is based on the 2D projection method, which first projects the 3D point cloud into the 2D bird's-eye view, and then maps the semantic segmentation classification back to the 3D point cloud.&nbsp; Although the 2D projection method is prone to lose geometric information, however, due to computational power and storage space considerations, the 2D projection is more efficient than the 3D-based and point methods are more efficient.<br>
+          <br>
+        </p>
+        <h4 class="u-text u-text-default u-text-4">Main Structure</h4>
+        <h5 class="u-text u-text-default u-text-5">BEV Mapping<br>
+        </h5>
+        <p class="u-text u-text-default u-text-6"> In order to handle the huge amount of data in SensatUrban, the BEV projection was divided into three steps. <br>3D-to-BEV projection, sparse BEV images completion, and BEV-to-3D remapping.<br>
+          <br>
+        </p>
+        <p class="u-text u-text-default u-text-7">
+          <span style="font-weight: 700;"> 3D-to-BEV projection :</span>
+          <br>&nbsp;In each step, the points in the sliding window are mapped, and then the mapped points are deleted to reduce the amount of data processing.<br>
+          <br>
+          <span style="font-weight: 700;">Sparse BEV image :</span>
+          <br>Complete images by Maxpooling.<br>
+          <br>
+          <span style="font-weight: 700;">BEV-to-3D remapping:</span>
+          <br>Save the absolute coordinates of each sliding window and extract the original point cloud output for 2D semantic segmentation.&nbsp;
+        </p>
+        <h5 class="u-text u-text-default u-text-8">2D multi-modal segmentation<br>
+        </h5>
+        <p class="u-text u-text-default u-text-9">The Encoder-Decoder Network Unet is used as a base, which consists of four encoders and five decoders, two of which are ResNet-34. <br>Each convolutional block has a Batch-Normalization Layer and a Rectified Linear Unit Function (ReLU Layer) .<br>The multimodal network relies on the Feature Communication of the different layers. Here, a flexible multi-stage fusion network is used to enable multi-pipeline data fusion.<br>The more important channels are selected by the attention layer. Finally, a 1x1 convolution is added to reduce the dimensionality and maintain a&nbsp; &nbsp; constant output shape.<br>
+        </p>
+        <h4 class="u-text u-text-default u-text-10">Modification</h4>
+        <p class="u-text u-text-default u-text-11"> We mainly process with the BEV images.<br>
+        </p>
+        <h5 class="u-text u-text-default u-text-12">Input image size<br>
+        </h5>
+        <p class="u-text u-text-default u-text-13"> Due to the hardware limitation of the GPU, it is difficult for us to use the original size in the paper.<br>Therefore, we tried three sizes,&nbsp; 100x100, 200x200 and 300x300.<br>The different sizes of the input images have a great influence on the batch size and the training time.<br>
+        </p>
+        <h5 class="u-text u-text-default u-text-14">Input image channel<br>
+        </h5>
+        <p class="u-text u-text-15"> The original input images use only R, G, and B channels. <br>Because the BEV resulted in the lack of difference of height between the objects in the 3D space.<br>Therefore, we added a fourth channel, altitude.<br>
+        </p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-3" id="sec-20ba">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-text u-text-default u-text-1">We set image size to 100*100, train with only rgb channels in 300 epochs as our baseline.<br>The output is below :&nbsp;
+        </p>
+        <img class="u-align-center u-image u-image-contain u-image-default u-image-1" src="images/image14.png" alt="" data-image-width="1057" data-image-height="200">
+        <p class="u-text u-text-default u-text-2"> Since the performance of using only rgb is not exceed our expectation, so we add height as fourth channel.And the results are shown below.</p>
+        <img class="u-align-center u-image u-image-contain u-image-default u-image-2" src="images/image-4.png" alt="" data-image-width="537" data-image-height="191">
+      </div>
+    </section>
+    <section class="u-clearfix u-section-4" id="sec-920d">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-expanded-width u-gallery u-layout-grid u-lightbox u-no-transition u-show-text-none u-gallery-1">
+          <div class="u-gallery-inner u-gallery-inner-1">
+            <div class="u-effect-hover-zoom u-gallery-item u-shape-rectangle" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">
+              <div class="u-back-slide" data-image-width="150" data-image-height="150">
+                <img class="u-back-image u-expanded" src="images/cambridge_block_15_1125_1200_rgb50.png" data-image-width="500" data-image-height="500">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-1">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-hover-zoom u-gallery-item u-shape-rectangle" data-image-width="500" data-image-height="500">
+              <div class="u-back-slide" data-image-width="500" data-image-height="500">
+                <img class="u-back-image u-expanded" src="images/cambridge_block_15_1000_1575_rgb50.png">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-2">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-hover-zoom u-gallery-item u-shape-rectangle" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">
+              <div class="u-back-slide" data-image-width="500" data-image-height="500">
+                <img class="u-back-image u-expanded" src="images/birmingham_block_8_950_400_rgb50.png" data-image-width="500" data-image-height="500">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-3">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-hover-zoom u-gallery-item u-shape-rectangle" data-image-width="500" data-image-height="500">
+              <div class="u-back-slide" data-image-width="500" data-image-height="500">
+                <img class="u-back-image u-expanded" src="images/birmingham_block_8_1100_675_rgb50.png">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-4">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-hover-zoom u-gallery-item u-shape-rectangle" data-image-width="500" data-image-height="500">
+              <div class="u-back-slide" data-image-width="500" data-image-height="500">
+                <img class="u-back-image u-expanded" src="images/birmingham_block_8_1125_589_rgb50.png">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-5">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-hover-zoom u-gallery-item u-shape-rectangle" data-image-width="500" data-image-height="500">
+              <div class="u-back-slide" data-image-width="500" data-image-height="500">
+                <img class="u-back-image u-expanded" src="images/cambridge_block_15_825_1200_rgb50.png">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-6">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-hover-zoom u-gallery-item u-shape-rectangle" data-image-width="500" data-image-height="500">
+              <div class="u-back-slide" data-image-width="500" data-image-height="500">
+                <img class="u-back-image u-expanded" src="images/cambridge_block_15_925_1400_rgb50.png">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-7">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-hover-zoom u-gallery-item u-shape-rectangle" data-image-width="500" data-image-height="500">
+              <div class="u-back-slide" data-image-width="500" data-image-height="500">
+                <img class="u-back-image u-expanded" src="images/birmingham_block_8_1050_475_rgb50.png">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-8">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-hover-zoom u-gallery-item u-shape-rectangle" data-image-width="500" data-image-height="500">
+              <div class="u-back-slide" data-image-width="500" data-image-height="500">
+                <img class="u-back-image u-expanded" src="images/cambridge_block_12_800_247_rgb50.png">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-9">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-hover-zoom u-gallery-item u-shape-rectangle" data-image-width="500" data-image-height="500">
+              <div class="u-back-slide" data-image-width="500" data-image-height="500">
+                <img class="u-back-image u-expanded" src="images/cambridge_block_12_800_297_rgb50.png">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-10">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-hover-zoom u-gallery-item u-shape-rectangle" data-image-width="500" data-image-height="500">
+              <div class="u-back-slide" data-image-width="500" data-image-height="500">
+                <img class="u-back-image u-expanded" src="images/cambridge_block_12_800_322_rgb50.png">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-11">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+            <div class="u-effect-hover-zoom u-gallery-item u-shape-rectangle" data-image-width="500" data-image-height="500">
+              <div class="u-back-slide" data-image-width="500" data-image-height="500">
+                <img class="u-back-image u-expanded" src="images/cambridge_block_12_800_272_rgb50.png">
+              </div>
+              <div class="u-over-slide u-shading u-over-slide-12">
+                <h3 class="u-gallery-heading"></h3>
+                <p class="u-gallery-text"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-195b"><div class="u-clearfix u-sheet u-sheet-1"></div></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Website Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="" target="_blank">
+        <span>Website Builder Software</span>
+      </a>. 
+    </section>
+  
+</body></html>
